@@ -12,6 +12,7 @@
 		E7116C521F86B60A005A746D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7116C501F86B60A005A746D /* Main.storyboard */; };
 		E7116C541F86B60A005A746D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7116C531F86B60A005A746D /* Assets.xcassets */; };
 		E7116C571F86B60A005A746D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7116C551F86B60A005A746D /* LaunchScreen.storyboard */; };
+		E7116C621F86B956005A746D /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E7116C611F86B94B005A746D /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E7116C531F86B60A005A746D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7116C561F86B60A005A746D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7116C581F86B60A005A746D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7116C611F86B94B005A746D /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		E7116C4B1F86B60A005A746D /* Real Time CoreML Image Classifier */ = {
 			isa = PBXGroup;
 			children = (
+				E7116C601F86B94A005A746D /* Models */,
 				E7116C4C1F86B60A005A746D /* AppDelegate.swift */,
 				E7116C4E1F86B60A005A746D /* ViewController.swift */,
 				E7116C501F86B60A005A746D /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				E7116C581F86B60A005A746D /* Info.plist */,
 			);
 			path = "Real Time CoreML Image Classifier";
+			sourceTree = "<group>";
+		};
+		E7116C601F86B94A005A746D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7116C611F86B94B005A746D /* Resnet50.mlmodel */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7116C4F1F86B60A005A746D /* ViewController.swift in Sources */,
+				E7116C621F86B956005A746D /* Resnet50.mlmodel in Sources */,
 				E7116C4D1F86B60A005A746D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
