@@ -68,6 +68,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // Dispose of any resources that can be recreated.
     }
     
+    var count = 0
+    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         connection.videoOrientation = .portrait
         
@@ -76,9 +78,14 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         DispatchQueue.main.async {
             self.imageView.image = UIImage.init(ciImage: coreImage)
-
         }
 
+        if count < 20 {
+            count += 1
+            return
+        }
+        count = 0
+        
         let request = VNCoreMLRequest(model: self.model, completionHandler: { (request, error) in
             guard let results = request.results as? [VNClassificationObservation]
                 else { fatalError("huh") }
@@ -88,6 +95,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                 DispatchQueue.main.async {
                     self.classLabel.text = best.identifier
                     self.probabilityLabel.text = "\((best as VNObservation).confidence)"
+                    
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.classLabel.text = "Nothing found"
+                    self.probabilityLabel.text = ""
                     
                 }
             }
