@@ -13,11 +13,9 @@ import Vision
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     
-    let captureSession = AVCaptureSession()
     
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var probabilityLabel: UILabel!
-    
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -26,6 +24,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let videoManager = VideoSessionManager(withDelegate: self)
         
         do {
             self.model = try VNCoreMLModel(for: Resnet50().model)
@@ -34,38 +33,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
             return
         }
         
-        self.captureSession.sessionPreset = AVCaptureSession.Preset.photo
-        
-        
-        let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-        
-        do {
-            let input = try AVCaptureDeviceInput(device: backCamera!)
-            captureSession.addInput(input)
-            
-        } catch {
-            print("Can't acess camera")
-            return
-        }
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        view.layer.addSublayer(previewLayer)
-        
-        let videoOutput = AVCaptureVideoDataOutput()
-        
-        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue.init(label: "sample buffer delegate"))
-        captureSession.addOutput(videoOutput)
-        
-        captureSession.startRunning()
-        
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     var count = 0
@@ -104,26 +71,17 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
                     
                 }
             }
-            
-
-
         })
 
         let hander = VNImageRequestHandler(cvPixelBuffer: pixelBuffer!, orientation: .up, options: [:])
         do {
             try hander.perform([request])
         } catch {
-            print("Could'nt perform")
+            print("Couldn't perform")
         }
 
-        
-        
-        
-        
-        
-       
     }
-    
+
     
 }
 

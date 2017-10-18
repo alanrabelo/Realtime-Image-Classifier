@@ -81,16 +81,30 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjK-VS-xfd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QG1-1q-PwP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="VHh-L8-Auv"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GBd-fu-7n2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="03V-X2-9Rh"/>
+                            <constraint firstAttribute="trailing" secondItem="vjK-VS-xfd" secondAttribute="trailing" id="0kj-5U-DSF"/>
                             <constraint firstItem="7E2-K8-XFA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1sU-MA-MxS"/>
                             <constraint firstItem="GBd-fu-7n2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3rQ-jt-aVh"/>
                             <constraint firstItem="7E2-K8-XFA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="747-Xe-V3S"/>
+                            <constraint firstItem="vjK-VS-xfd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e1s-ZU-fVf"/>
                             <constraint firstItem="7E2-K8-XFA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jzI-KX-xEF"/>
                             <constraint firstItem="GBd-fu-7n2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ogI-sa-uAL"/>
                             <constraint firstItem="GBd-fu-7n2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uyr-nJ-Qvm"/>
+                            <constraint firstItem="vjK-VS-xfd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yn3-ES-Fx6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
